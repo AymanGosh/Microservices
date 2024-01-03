@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Service {
 	private final int WORDS_NUM=5;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<String> wordsList = new ArrayList<>();
 		Service s = new Service(); 
