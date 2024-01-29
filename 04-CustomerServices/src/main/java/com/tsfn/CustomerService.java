@@ -2,7 +2,8 @@ package com.tsfn;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-
+import com.tsfn.beans.PrototypeBean;
+import com.tsfn.beans.SingletonBean;
 import com.tsfn.conf.Config;
 import com.tsfn.model.Account;
 import com.tsfn.model.Customer;
@@ -23,9 +24,19 @@ public class CustomerService {
 		
 		cust1.setCustID(111);
 		cust1.setCustName("Zoubi");
-	
 		
 		System.out.println(cust1);
+		
+		SingletonBean sinleton1 = ctx.getBean(SingletonBean.class);
+		SingletonBean sinleton2 = ctx.getBean(SingletonBean.class);
+		System.out.println(sinleton1.x);
+		System.out.println(sinleton2.x);
+		
+		PrototypeBean proto1 = ctx.getBean(PrototypeBean.class);
+		PrototypeBean proto2 = ctx.getBean("proto",PrototypeBean.class);
+		System.out.println(proto1.x);
+		System.out.println(proto2.x);
+		
 		((AnnotationConfigApplicationContext)ctx).close();
 
 	}

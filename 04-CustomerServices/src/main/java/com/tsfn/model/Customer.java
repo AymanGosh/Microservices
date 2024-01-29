@@ -1,5 +1,8 @@
 package com.tsfn.model;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +23,16 @@ public class Customer {
 	@Qualifier("acc2")
 	private MyAcc account ;
 	
+	
+	@PostConstruct // java annotation deprecate from java 9 | look to the lesson of Dawoud P.39 
+	public void postConstruct() {
+		System.out.println("@postConstruct");
+	}
+	
+	@PreDestroy
+	public void preDestroy() {
+		System.out.println("@preDestroy");
+	}
 	
 	public int getCustID() {
 		return custID;
