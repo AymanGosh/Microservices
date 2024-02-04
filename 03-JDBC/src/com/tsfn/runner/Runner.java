@@ -36,7 +36,7 @@ public class Runner {
 				e.printStackTrace();
 			}
 
-			// Example Executing tasks with connection concurently
+			// Example Executing tasks with connection concurrently
 			Thread executeThread1 = new Thread(() -> {
 				try {
 					companyFacade.executeWithConnection(Connection -> {
